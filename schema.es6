@@ -12,6 +12,11 @@ import {
 import User from './Models/User/UserSchema.es6';
 import Hobby from './Models/Hobby/HobbySchema.es6';
 import Slot from './Models/Slot/SlotSchema.es6';
+import Row from './Models/Row/RowSchema.es6';
+import Level from './Models/Level/LevelSchema.es6';
+import Address from './Models/Address/AddressSchema.es6';
+import Item from './Models/Item/ItemSchema.es6';
+import Pallet from './Models/Pallet/PalletSchema.es6';
 
 import {
   UserQueries,
@@ -29,7 +34,37 @@ import {
   SlotType,
   SlotQueries,
   SlotMutations,
-  } from './Models/Slot/SlotQL.es6';
+} from './Models/Slot/SlotQL.es6';
+
+import {
+  RowType,
+  RowQueries,
+  RowMutations,
+} from './Models/Row/RowQL.es6';
+
+import {
+  LevelType,
+  LevelQueries,
+  LevelMutations,
+} from './Models/Level/LevelQL.es6';
+
+import {
+  AddressType,
+  AddressQueries,
+  AddressMutations,
+} from './Models/Address/AddressQL.es6';
+
+import {
+  ItemType,
+  ItemQueries,
+  ItemMutations,
+  } from './Models/Item/ItemQL.es6';
+
+import {
+  PalletType,
+  PalletQueries,
+  PalletMutations,
+  } from './Models/Pallet/PalletQL.es6';
 
 
 let RootQuery = new GraphQLObjectType({
@@ -40,7 +75,17 @@ let RootQuery = new GraphQLObjectType({
     hobby: HobbyQueries.hobby,
     hobbies: HobbyQueries.hobbies,
     slot: SlotQueries.slot,
-    slots: SlotQueries.slots
+    slots: SlotQueries.slots,
+    row: RowQueries.row,
+    rows: RowQueries.rows,
+    level: LevelQueries.level,
+    levels: LevelQueries.levels,
+    address: AddressQueries.address,
+    addresses: AddressQueries.addresses,
+    item: ItemQueries.item,
+    items: ItemQueries.items,
+    pallet: PalletQueries.pallet,
+    pallets: PalletQueries.pallets
   })
 });
 

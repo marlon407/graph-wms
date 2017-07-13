@@ -8,27 +8,27 @@ import {
   GraphQLID
   } from 'graphql';
 
-import SlotType from './SlotTypeQL.es6';
-import Slot from './SlotSchema.es6';
+import LevelType from './LevelTypeQL.es6';
+import Level from './LevelSchema.es6';
 
 export default {
-  addSlot:{
-    type:SlotType,
+  addLevel:{
+    type:LevelType,
     args: {
       number:{
         name:'number',
         type:new GraphQLNonNull(GraphQLInt)
       },
-      width:{
-        name:'width',
+      heigth:{
+        name:'heigth',
         type: new GraphQLNonNull(GraphQLInt)
       }
     },
-    resolve: (root, {number, width}) => {
-      var newSlot = new Slot({number:number, width:width});
+    resolve: (root, {number, heigth}) => {
+      var newLevel = new Level({number:number, heigth:heigth});
 
       return new Promise((resolve, reject) => {
-        newSlot.save((err, res) => {
+        newLevel.save((err, res) => {
           err ? reject(err): resolve(res);
         });
       });

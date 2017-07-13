@@ -8,27 +8,27 @@ import {
   GraphQLID
   } from 'graphql';
 
-import SlotType from './SlotTypeQL.es6';
-import Slot from './SlotSchema.es6';
+import RowType from './RowTypeQL.es6';
+import Row from './RowSchema.es6';
 
 export default {
-  addSlot:{
-    type:SlotType,
+  addRow:{
+    type:RowType,
     args: {
       number:{
         name:'number',
         type:new GraphQLNonNull(GraphQLInt)
       },
-      width:{
-        name:'width',
+      depth:{
+        name:'depth',
         type: new GraphQLNonNull(GraphQLInt)
       }
     },
-    resolve: (root, {number, width}) => {
-      var newSlot = new Slot({number:number, width:width});
+    resolve: (root, {number, depth}) => {
+      var newRow = new Row({number:number, depth:depth});
 
       return new Promise((resolve, reject) => {
-        newSlot.save((err, res) => {
+        newRow.save((err, res) => {
           err ? reject(err): resolve(res);
         });
       });
