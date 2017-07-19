@@ -187,6 +187,81 @@ address2.save();
 address3.save();
 address4.save();
 
+let item1 = new Item({
+  description: "item 1",
+  value: "10",
+  type:"item"
+})
+let item2 = new Item({
+  description: "item 2",
+  value: "10",
+  type:"item"
+})
+let item3 = new Item({
+  description: "item3",
+  value: "10",
+  type:"item"
+})
+let item4 = new Item({
+  description: "item4",
+  value: "10",
+  type:"item"
+})
+let item5 = new Item({
+  description: "item5",
+  value: "10",
+  type:"item"
+})
+
+item1.save();
+item2.save();
+item3.save();
+item4.save();
+item5.save();
+
+
+let pallet1 = new Pallet({
+  item: item1,
+  width: 10,
+  heigth: 10,
+  quantity: 20,
+  type: "pallet"
+})
+let pallet2 = new Pallet({
+  item: item1,
+  width: 10,
+  heigth: 10,
+  quantity: 20,
+  type: "pallet"
+})
+let pallet3 = new Pallet({
+  item: item2,
+  width: 10,
+  heigth: 10,
+  quantity: 40,
+  type: "pallet"
+})
+let pallet4 = new Pallet({
+  item: item2,
+  width: 10,
+  heigth: 10,
+  quantity: 40,
+  type: "pallet"
+})
+let pallet5 = new Pallet({
+  item: item2,
+  width: 10,
+  heigth: 10,
+  quantity: 40,
+  type: "pallet"
+})
+
+pallet1.save();
+pallet2.save();
+pallet3.save();
+pallet4.save();
+pallet5.save();
+
 hobbyCycling.save();
 hobbyFlying.save();
 hobbyHorses.save();

@@ -15,7 +15,7 @@ export default new GraphQLObjectType({
   description: 'An item',
   fields: () => ({
     _id: {
-      type: new GraphQLNonNull(GraphQLID)
+      type: new GraphQLNonNull(GraphQLString)
     },
     description: {
       type: new GraphQLNonNull(GraphQLString)

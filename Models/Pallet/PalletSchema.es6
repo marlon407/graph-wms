@@ -29,8 +29,8 @@ module.exports = Pallet;
 
 module.exports.getPalletByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Pallet.find({}).populate('item').exec((err, res) => {
-      err ? reject(err) : resolve(res[id]);
+    Pallet.findById(id).populate('item').exec((err, res) => {
+      err ? reject(err): resolve(res);
     })
   });
 };

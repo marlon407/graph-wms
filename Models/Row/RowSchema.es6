@@ -18,8 +18,8 @@ module.exports = Row;
 
 module.exports.getRowByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Row.find({}).exec((err, res) => {
-      err ? reject(err) : resolve(res[id]);
+    Row.findById(id).exec((err, res) => {
+      err ? reject(err) : resolve(res);
     });
   });
 };

@@ -15,9 +15,8 @@ let Address = mongoose.model('Address', AddressSchema);
 module.exports = Address;
 
 module.exports.getAddressByPosition = (root, {id}) => {
-  console.log("I am here")
   return new Promise((resolve, reject) => {
-    Address.find({_id: id}).populate('row level slot').exec((err, res) => {
+    Address.findOne({_id: id}).populate('row level slot').exec((err, res) => {
       err ? reject(err) : resolve(res);
     })
   });

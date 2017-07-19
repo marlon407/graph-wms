@@ -18,8 +18,8 @@ module.exports = Level;
 
 module.exports.getLevelByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Level.find({}).exec((err, res) => {
-      err ? reject(err) : resolve(res[id]);
+    Level.findById(id).exec((err, res) => {
+      err ? reject(err) : resolve(res);
     });
   });
 };

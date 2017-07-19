@@ -17,8 +17,8 @@ module.exports = Item;
 
 module.exports.getItemByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Item.find({}).exec((err, res) => {
-      err ? reject(err) : resolve(res[id]);
+    Item.findOne({id: id}).exec((err, res) => {
+      err ? reject(err) : resolve(res);
     });
   });
 };

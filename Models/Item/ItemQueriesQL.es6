@@ -20,7 +20,7 @@ export default {
     type: ItemType,
     args: {
       id: {
-        type: GraphQLID
+        type: GraphQLString
       }
     },
     resolve: Item.getItemByPosition

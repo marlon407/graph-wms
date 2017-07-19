@@ -18,8 +18,8 @@ module.exports = Slot;
 
 module.exports.getSlotByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Slot.find({}).exec((err, res) => {
-      err ? reject(err) : resolve(res[id]);
+    Slot.findById(id).exec((err, res) => {
+      err ? reject(err) : resolve(res);
     });
   });
 };
