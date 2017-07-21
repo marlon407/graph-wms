@@ -222,38 +222,43 @@ item5.save();
 
 let pallet1 = new Pallet({
   item: item1,
+  address: address1,
   width: 10,
   heigth: 10,
   quantity: 20,
-  type: "pallet"
+  type: "pallet 1"
 })
 let pallet2 = new Pallet({
+  address: address1,
   item: item1,
   width: 10,
   heigth: 10,
   quantity: 20,
-  type: "pallet"
+  type: "pallet 2"
 })
 let pallet3 = new Pallet({
   item: item2,
+  address: address2,
   width: 10,
   heigth: 10,
   quantity: 40,
-  type: "pallet"
+  type: "pallet 3"
 })
 let pallet4 = new Pallet({
+  address: address2,
   item: item2,
   width: 10,
   heigth: 10,
   quantity: 40,
-  type: "pallet"
+  type: "pallet 4"
 })
 let pallet5 = new Pallet({
+  address: address3,
   item: item2,
   width: 10,
   heigth: 10,
   quantity: 40,
-  type: "pallet"
+  type: "pallet 5"
 })
 
 pallet1.save();

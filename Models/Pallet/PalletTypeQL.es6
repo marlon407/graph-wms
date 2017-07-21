@@ -10,6 +10,7 @@ import {
 
 import Pallet from './PalletSchema.es6';
 import ItemType from '../Item/ItemTypeQL.es6';
+import AddressType from '../Address/AddressTypeQL.es6';
 
 export default new GraphQLObjectType({
   name: 'Pallet',
@@ -20,7 +21,11 @@ export default new GraphQLObjectType({
     },
     item:{
       name:'item',
-      type: new GraphQLSchema(ItemType)
+      type: ItemType
+    },
+    address:{
+      name:'address',
+      type: AddressType
     },
     heigth: {
       name: 'heigth',
