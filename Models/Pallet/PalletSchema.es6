@@ -46,7 +46,7 @@ module.exports.updatePallet = (pallet) => {
 
 module.exports.getListOfPallets = () => {
   return new Promise((resolve, reject) => {
-    Pallet.find({}).populate('item address').exec((err, res) => {
+    Pallet.find({}).populate('item address').exec((err, res) => { 
       err ? reject(err) : resolve(res);
     });
   });

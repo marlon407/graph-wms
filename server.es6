@@ -1,10 +1,10 @@
 import express from 'express';
-import schema from './schema.es6';
-
+import mongoose from 'mongoose';
 import {graphql} from 'graphql';
 import bodyparser from 'body-parser';
+import os from 'os';
 
-import mongoose from 'mongoose';
+import schema from './schema.es6';
 
 let db = mongoose.connection;
 
@@ -25,7 +25,15 @@ app.post('/', (req, res) => {
     });
 });
 
+app.get('/', (req, res) => {
+  const startUsage = process.cpuUsage();
+  graphql(schema, req.query.query)
+    .then((result) => {
+      res.send(result);
+      console.log(process.cpuUsage(startUsage).user);
+    });
+});
+
 let server = app.listen(PORT, function () {
-  console.log(`Server listening at ${PORT}`);
   mongoose.connect('mongodb://localhost/wms-mongo');
 });

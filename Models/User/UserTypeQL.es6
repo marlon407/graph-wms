@@ -29,6 +29,9 @@ export default new GraphQLObjectType({
     },
     hobbies:{
       type: new GraphQLList(HobbyType)
+    },
+    friends:{
+      type: new GraphQLList(this)
     }
   })
 });

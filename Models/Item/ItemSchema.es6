@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 var ItemSchema = new mongoose.Schema({
-  id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
+    id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
     description: {
     type: String,
     required: true

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 var SlotSchema = new mongoose.Schema({
-  id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
+  _id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
     number: {
     type: Number,
     required: true
@@ -18,7 +18,7 @@ module.exports = Slot;
 
 module.exports.getSlotByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Slot.findById(id).exec((err, res) => {
+    Slot.findOne({_id: id}).exec((err, res) => {
       err ? reject(err) : resolve(res);
     });
   });

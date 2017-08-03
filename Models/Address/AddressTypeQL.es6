@@ -20,6 +20,9 @@ export default new GraphQLObjectType({
     _id: {
       type: new GraphQLNonNull(GraphQLString)
     },
+    description: {
+      type: GraphQLString
+    },
     level:{
       type: LevelType
     },
@@ -27,7 +30,13 @@ export default new GraphQLObjectType({
       type: RowType
     },
     slot:{
-      type: SlotType
+      type: SlotType,
+      resolve: (address) => {
+          return address.getAddressById(function(fullAddress) {
+            console.log("fulladdress", fullAddress.slot)
+            return fullAddress.slot
+          })
+        },
     },
   })
 });
