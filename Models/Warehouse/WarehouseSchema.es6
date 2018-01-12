@@ -1,19 +1,18 @@
 import mongoose from 'mongoose';
 
-var HobbySchema = new mongoose.Schema({
+var WarehouseSchema = new mongoose.Schema({
   id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
-  title: String,
   description: String,
-  type: String
+  pallets: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pallet'}],
 });
 
-let Hobby = mongoose.model('Hobby', HobbySchema);
+let Warehouse = mongoose.model('Warehouse', WarehouseSchema);
 
-module.exports = Hobby;
+module.exports = Warehouse;
 
-module.exports.getHobbyByPosition = (root, {id}) => {
+module.exports.getWarehouseByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Hobby.find({}).exec((err, res) => {
+    Warehouse.find({}).populate('pallets').exec((err, res) => {
       err ? reject(err) : resolve(res[id]);
     });
   });
@@ -21,7 +20,7 @@ module.exports.getHobbyByPosition = (root, {id}) => {
 
 module.exports.getListOfHobbies = () => {
   return new Promise((resolve, reject) => {
-    Hobby.find({}).exec((err, res) => {
+    Warehouse.find({}).populate('pallets').exec((err, res) => {
       err ? reject(err) : resolve(res);
     });
   });

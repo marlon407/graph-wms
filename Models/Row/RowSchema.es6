@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 var RowSchema = new mongoose.Schema({
-  id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
-    number: {
+  _id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
+  number: {
     type: Number,
     required: true
   },

@@ -11,6 +11,7 @@ import {
 import Pallet from './PalletSchema.es6';
 import ItemType from '../Item/ItemTypeQL.es6';
 import AddressType from '../Address/AddressTypeQL.es6';
+import WarehouseType from '../Warehouse/WarehouseTypeQL.es6';
 
 export default new GraphQLObjectType({
   name: 'Pallet',

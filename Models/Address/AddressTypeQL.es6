@@ -30,13 +30,7 @@ export default new GraphQLObjectType({
       type: RowType
     },
     slot:{
-      type: SlotType,
-      resolve: (address) => {
-          return address.getAddressById(function(fullAddress) {
-            console.log("fulladdress", fullAddress.slot)
-            return fullAddress.slot
-          })
-        },
+      type: SlotType
     },
   })
 });

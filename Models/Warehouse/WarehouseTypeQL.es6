@@ -8,20 +8,21 @@ import {
   GraphQLID
   } from 'graphql';
 
-import Hobby from './HobbySchema.es6';
+import Warehouse from './WarehouseSchema.es6';
+import PalletType from '../Pallet/PalletTypeQL.es6';
 
 export default new GraphQLObjectType({
-  name: 'Hobby',
-  description: 'A hobby',
+  name: 'Warehouse',
+  description: 'A Warehouse',
   fields: () => ({
     _id: {
       type: new GraphQLNonNull(GraphQLID)
     },
-    title: {
-      type: new GraphQLNonNull(GraphQLString)
-    },
     description:{
       type: GraphQLString
+    },
+    pallets:{
+      type: new GraphQLList(PalletType)
     }
   })
 });

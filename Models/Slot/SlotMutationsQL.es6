@@ -17,7 +17,7 @@ export default {
     args: {
       number:{
         name:'number',
-        type:new GraphQLNonNull(GraphQLInt)
+        type:new GraphQLNonNull(GraphQLString)
       },
       width:{
         name:'width',

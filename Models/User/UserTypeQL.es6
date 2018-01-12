@@ -9,7 +9,7 @@ import {
   } from 'graphql';
 
 import User from './UserSchema.es6';
-import HobbyType from '../Hobby/HobbyTypeQL.es6';
+import WarehouseType from '../Warehouse/WarehouseTypeQL.es6';
 
 export default new GraphQLObjectType({
   name: 'User',
@@ -27,8 +27,8 @@ export default new GraphQLObjectType({
     age:{
       type: GraphQLInt
     },
-    hobbies:{
-      type: new GraphQLList(HobbyType)
+    wahouses:{
+      type: new GraphQLList(WarehouseType)
     },
     friends:{
       type: new GraphQLList(this)

@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 var SlotSchema = new mongoose.Schema({
   _id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
-    number: {
-    type: Number,
+  number: {
+    type: String,
     required: true
   },
   width: {

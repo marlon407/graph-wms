@@ -18,7 +18,7 @@ export default new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLID)
     },
     number: {
-      type: new GraphQLNonNull(GraphQLInt)
+      type: new GraphQLNonNull(GraphQLString)
     },
     width: {
       type: new GraphQLNonNull(GraphQLInt)

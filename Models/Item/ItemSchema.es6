@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
 var ItemSchema = new mongoose.Schema({
-    id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
+    _id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
     description: {
-    type: String,
-    required: true
-  },
-  value: {
-    type: String,
+      type: String,
+      required: true
+    },
+    value: {
+      type: String,
   }
 });
 
@@ -17,7 +17,7 @@ module.exports = Item;
 
 module.exports.getItemByPosition = (root, {id}) => {
   return new Promise((resolve, reject) => {
-    Item.findOne({id: id}).exec((err, res) => {
+    Item.findOne({_id: id}).exec((err, res) => {
       err ? reject(err) : resolve(res);
     });
   });

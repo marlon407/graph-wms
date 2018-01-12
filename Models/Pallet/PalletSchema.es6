@@ -1,9 +1,12 @@
 import mongoose from 'mongoose';
 
-let PalletSchema = new mongoose.Schema({
-  id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
-  item: {type: mongoose.Schema.Types.ObjectId, ref: 'Item'},
-  address: {type: mongoose.Schema.Types.ObjectId, ref: 'Address'},
+/**
+ * Pallet Schema
+ */
+const PalletSchema = new mongoose.Schema({
+  _id: { type: String, required: true, unique: true, index: true, default: mongoose.Types.ObjectId },
+  item: { type: mongoose.Schema.Types.ObjectId, ref: 'Item' },
+  address: {type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
   heigth: {
     type: Number,
     required: true
@@ -46,7 +49,18 @@ module.exports.updatePallet = (pallet) => {
 
 module.exports.getListOfPallets = () => {
   return new Promise((resolve, reject) => {
-    Pallet.find({}).populate('item address').exec((err, res) => { 
+    Pallet.find()
+      .populate({path: 'item', model: 'Item'})
+      .populate({path: 'address', populate: {
+        path: "slot", model: "Slot"
+      }})
+      .populate({path: 'address', populate: {
+        path: "level", model: "Level"
+      }})
+      .populate({path: 'address', populate: {
+        path: "row", model: "Row"
+      }})
+      .exec((err, res) => {
       err ? reject(err) : resolve(res);
     });
   });

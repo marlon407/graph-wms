@@ -26,11 +26,12 @@ app.post('/', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  const startUsage = process.cpuUsage();
+  // const startUsage = process.cpuUsage();
   graphql(schema, req.query.query)
     .then((result) => {
       res.send(result);
-      console.log(process.cpuUsage(startUsage).user);
+      console.log(process.memoryUsage().heapUsed);
+      // console.log(process.cpuUsage(startUsage).user);
     });
 });
 

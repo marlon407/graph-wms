@@ -8,27 +8,23 @@ import {
   GraphQLID
   } from 'graphql';
 
-import HobbyType from './HobbyTypeQL.es6';
-import Hobby from './HobbySchema.es6';
+import WarehouseType from './WarehouseTypeQL.es6';
+import Warehouse from './WarehouseSchema.es6';
 
 export default {
-  addHobby:{
-    type:HobbyType,
+  addWarehouse:{
+    type:WarehouseType,
     args: {
-      title:{
-        name:'title',
-        type:new GraphQLNonNull(GraphQLString)
-      },
       description:{
         name:'description',
         type: new GraphQLNonNull(GraphQLString)
       }
     },
     resolve: (root, {title, description}) => {
-      var newHobby = new Hobby({title:title, description:description});
+      var newWarehouse = new Warehouse({title:title, description:description});
 
       return new Promise((resolve, reject) => {
-        newHobby.save((err, res) => {
+        newWarehouse.save((err, res) => {
           err ? reject(err): resolve(res);
         });
       });

@@ -10,7 +10,7 @@ import {
   } from 'graphql';
 
 import User from './Models/User/UserSchema.es6';
-import Hobby from './Models/Hobby/HobbySchema.es6';
+import Warehouse from './Models/Warehouse/WarehouseSchema.es6';
 import Slot from './Models/Slot/SlotSchema.es6';
 import Row from './Models/Row/RowSchema.es6';
 import Level from './Models/Level/LevelSchema.es6';
@@ -25,10 +25,10 @@ import {
   } from './Models/User/UserQL.es6';
 
 import {
-  HobbyType,
-  HobbyQueries,
-  HobbyMutations,
-} from './Models/Hobby/HobbyQL.es6';
+  WarehouseType,
+  WarehouseQueries,
+  WarehouseMutations,
+} from './Models/Warehouse/WarehouseQL.es6';
 
 import {
   SlotType,
@@ -72,8 +72,8 @@ let RootQuery = new GraphQLObjectType({
   fields: () => ({
     user: UserQueries.user,
     users: UserQueries.users,
-    hobby: HobbyQueries.hobby,
-    hobbies: HobbyQueries.hobbies,
+    warehouse: WarehouseQueries.warehouse,
+    warehouses: WarehouseQueries.warehouses,
     slot: SlotQueries.slot,
     slots: SlotQueries.slots,
     row: RowQueries.row,

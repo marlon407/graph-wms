@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 var LevelSchema = new mongoose.Schema({
-  id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
+  _id: { type:String, required:true, unique:true, index:true, default:mongoose.Types.ObjectId },
   number: {
     type: Number,
     required: true
